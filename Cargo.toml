@@ -1,6 +1,6 @@
 [package]
 name = "poker_rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Joshua Rose <joshuarose@gmx.com>"]
 description = "A poker game written in Rust."
