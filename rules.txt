@@ -1,0 +1,14 @@
+                      |=====      POKER RULES       =====|
+                      |===== [ texas holdem style ] =====|
+
+ * Everyone is dealt two private cards, and five cards are placed in a shared space on the table.
+
+ * After the initial betting round, there is one round of betting after each card is dealt to the table.
+
+ * The player with the best hand based on their private cards and the shared cards on the table wins the pot.
+
+ * If the player with the strongest hand at the end of the betting rounds bets and everyone else folds
+   (meaning they stop betting and forfeit their cards), the winning player takes the pot without revealing their cards.
+
+ * Each hand is different, and the rules and strategies of poker can vary depending on the type of poker being played.
+
