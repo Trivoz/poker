@@ -7,7 +7,7 @@ description = "A poker game written in Rust."
 repository = "https://github.com/Trivoz/poker"
 readme = "README.md"
 license-file = "LICENSE.txt"
-documentation = "https://docs.rs/poker"
+documentation = "https://docs.rs/poker_rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
