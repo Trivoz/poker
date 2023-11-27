@@ -3,9 +3,12 @@ name = "poker"
 version = "0.1.0"
 edition = "2021"
 authors = ["Joshua Rose <joshuarose@gmx.com>"]
-license = "MIT"
+license = "FPA"
 description = "A poker game written in Rust."
 repository = "https://github.com/Trivoz/poker"
+readme = "README.md"
+license-file = "LICENSE.txt"
+documentation = "https://docs.rs/poker"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
