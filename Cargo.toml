@@ -3,7 +3,6 @@ name = "poker_rs"
 version = "0.1.0"
 edition = "2021"
 authors = ["Joshua Rose <joshuarose@gmx.com>"]
-license = "Apache-2.0"
 description = "A poker game written in Rust."
 repository = "https://github.com/Trivoz/poker"
 readme = "README.md"
