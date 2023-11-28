@@ -12,9 +12,9 @@ use super::suit::Suit;
 #[derive(PartialEq, Debug)]
 pub struct Card {
     /// The suit of the card.
-    suit: Suit,
+    pub suit: Suit,
     /// The rank of the card.
-    rank: Rank,
+    pub rank: Rank,
 }
 
 impl Card {

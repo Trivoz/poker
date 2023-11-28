@@ -4,6 +4,10 @@
 //! this module contains things that pertain to the functionality of the aforementioned subject
 //! matter.
 
+use super::card::Card;
+use super::rank::Rank;
+use super::suit::Suit;
+
 /// A struct representing a hand of cards in a game of poker.
 ///
 /// # Example
@@ -98,9 +102,47 @@ impl Hand {
         Hand::HighCard
     }
 
+    /// Returns the name of the hand.
+    ///
+    /// # Example
+    ///
+    /// ```rust,ignore,no_run
+    /// use poker::Hand;
+    ///
+    /// let hand = Hand::new();
+    ///
+    /// println!("You have a {}!", hand.name());
+    /// ```
+    pub fn name(&self) -> &str {
+        match self {
+            Hand::RoyalFlush => "Royal Flush",
+            Hand::StraightFlush => "Straight Flush",
+            Hand::FourOfAKind => "Four of a Kind",
+            Hand::FullHouse => "Full House",
+            Hand::Flush => "Flush",
+            Hand::Straight => "Straight",
+            Hand::ThreeOfAKind => "Three of a Kind",
+            Hand::TwoPair => "Two Pair",
+            Hand::OnePair => "One Pair",
+            Hand::HighCard => "High Card",
+        }
+    }
+
     /// Checks if the hand is a Royal Flush.
-    pub fn is_royal_flush(&self) -> bool {
-        self == &Hand::RoyalFlush
+    ///
+    /// Pattern:
+    /// - All cards are of the same suit.
+    /// - All cards are of the same rank.
+    /// - The cards are an Ace, King, Queen, Jack, and Ten.
+    /// - The cards are in a sequence.
+    pub fn is_royal_flush(&self, cards: Vec<Card>) -> bool {
+        let mut cards = cards;
+
+        // By default, the hand is not a royal flush.
+        let mut _is_flush = false;
+
+        // Check if all cards are of the same suit.
+        true
     }
 
     /// Checks if the hand is a Straight Flush.
