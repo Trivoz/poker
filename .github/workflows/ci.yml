@@ -21,14 +21,29 @@ jobs:
             task: "build-all-test run-all-unit-test"
           - name: Doc tests
             task: "run-all-doc-test"
-        include:
-          - os: ubuntu-latest
-            sccache-path: /home/runner/.cache/sccache
-          - os: macos-latest
-            sccache-path: /Users/runner/Library/Caches/Mozilla.sccache
         exclude:
           - os: macos-latest
             rust: stable
             make:
               name: Clippy
-
+    env:
+      RUST_BACKTRACE: full
+      RUSTV: ${{ matrix.rust }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust ${{ matrix.rust }}
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ matrix.rust }}
+          profile: minimal
+          override: true
+      - name: Cache cargo registry
+        uses: actions/cache@v2
+        continue-on-error: false
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
