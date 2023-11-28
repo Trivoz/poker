@@ -1,0 +1,37 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: 'Features :rocket:'
+    labels:
+      - 'enhancement'
+  - title: 'Bug Fixes :spider_web:'
+    labels:
+      - 'bug'
+  - title: 'Maintenance :hammer_and_wrench:'
+    labels:
+      - 'CI'
+      - 'tests'
+      - 'dependencies'
+      - 'configuration'
+      - 'chore'
+  - title: 'Documentation :page_with_curl:'
+    labels:
+      - 'documentation'
+      - 'wiki'
+      - 'docs'
+change-template: '- $TITLE (#$NUMBER)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+
+template: |
+  $CHANGES
