@@ -46,6 +46,12 @@ use terminal::clear_terminal;
 /// The minimum amount of players in a game of poker.
 const MIN_PLAYERS: u8 = 1;
 
+/// Whether or not to show the rules of poker by default.
+const SHOW_RULES_AS_DEFAULT: bool = false;
+
+/// The default amount of players if an invalid number is supplied.
+const DEFAULT_PLAYERS: u8 = 2;
+
 /// The maximum amount of players in a game of poker.
 const MAX_PLAYERS: u8 = 4;
 
