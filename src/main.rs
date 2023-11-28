@@ -32,7 +32,7 @@
 #![allow(unused)]
 
 mod ai;
-mod hand;
+mod cards;
 mod info;
 mod questions;
 mod terminal;
