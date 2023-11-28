@@ -80,10 +80,6 @@ impl PartialEq for Name {
             Name::Jeffery => other == &Name::Jeffery,
         }
     }
-
-    fn ne(&self, other: &Self) -> bool {
-        !self.eq(other)
-    }
 }
 
 impl Name {

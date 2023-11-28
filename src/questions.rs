@@ -5,7 +5,7 @@
 //!
 //! todo: tests for this file
 
-use super::{MAX_PLAYERS, MIN_PLAYERS};
+use super::{DEFAULT_PLAYERS, MAX_PLAYERS, MIN_PLAYERS, SHOW_RULES_AS_DEFAULT};
 
 /// Ask the user how many AI players they would like to play against.
 ///
@@ -20,18 +20,21 @@ pub fn ask_amount() -> u8 {
     println!("How many players would you like to compete against? (1-4)");
     let mut amount = String::new();
     std::io::stdin().read_line(&mut amount).unwrap();
-    let amount: u8 = amount.trim().parse().unwrap_or_else(|_| {
-        panic!(
-            "Please enter a number between {} and {}",
-            MIN_PLAYERS, MAX_PLAYERS
-        )
+    let mut amount: u8 = amount.trim().parse::<u8>().unwrap_or_else(|_| {
+        println!(
+            "Invalid number, defaulted to the default amount of {}",
+            DEFAULT_PLAYERS
+        );
+        DEFAULT_PLAYERS
     });
 
     if !(MIN_PLAYERS..=MAX_PLAYERS).contains(&amount) {
-        panic!(
-            "Please enter a number between {} and {}",
-            MIN_PLAYERS, MAX_PLAYERS
+        println!(
+            "Out of the scope of players ({}-{}), defaulting to the default amount of {}",
+            MIN_PLAYERS, MAX_PLAYERS, DEFAULT_PLAYERS
         );
+
+        amount = DEFAULT_PLAYERS;
     }
 
     amount
@@ -51,14 +54,16 @@ pub fn ask_show_rules() -> bool {
 
     println!("Would you like to see the rules of poker before you play? (y/N)");
     std::io::stdin().read_line(&mut answer).unwrap();
-    let mut show_rules: String = answer
-        .trim()
-        .parse()
-        .unwrap_or_else(|_| panic!("{}", String::from("Please enter y or n")));
+    let mut show_rules: String = answer.trim().parse().unwrap_or_else(|_| {
+        println!("Invalid answer, defaulting to no");
+        "n".to_string()
+    });
+
     show_rules = show_rules.to_lowercase();
 
-    if ["y", "n"].contains(&&show_rules[..]) {
-        return show_rules == "y";
+    if ["y", "n", ""].contains(&&show_rules[..]) {
+        (show_rules == "n") != SHOW_RULES_AS_DEFAULT
+    } else {
+        SHOW_RULES_AS_DEFAULT
     }
-    panic!("Please enter y or n");
 }
